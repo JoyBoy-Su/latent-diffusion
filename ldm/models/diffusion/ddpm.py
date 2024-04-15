@@ -83,7 +83,7 @@ class DDPM(pl.LightningModule):
         self.image_size = image_size  # try conv?
         self.channels = channels
         self.use_positional_encodings = use_positional_encodings
-        self.model = DiffusionWrapper(unet_config, conditioning_key)
+        self.model = DiffusionWrapper(unet_config, conditioning_key)    # denoise model (unet), input: noise image; output: image
         count_params(self.model, verbose=True)
         self.use_ema = use_ema
         if self.use_ema:
